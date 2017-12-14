@@ -5,7 +5,12 @@
 <br>
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 <br>
-<p>{{serverCreationStatus}}</p>
+<!-- <p>{{serverCreationStatus}}</p> -->
+<p *ngIf="serverCreated; else noServer">Server was created, server name is {{serverName}}</p>
+<ng-template #noServer>
+    <p>No server was created!</p>
+</ng-template>
+
 <br>
 <!-- <p>{{allowNewServer}}</p> -->
 <!-- <p [innerText]="allowNewServer"></p> Igual que arriba -->
@@ -15,10 +20,10 @@
 
 
 
-<br>
+<!-- <br>
 <label>Username</label>
 <input type="text" [(ngModel)]="username">
 <br>
 <p>{{username}}</p>
 <br>
-<button class="btn btn-primary" [disabled]="username === ''" (click)="onResetUsernameClick($event)">Reset username</button>
+<button class="btn btn-primary" [disabled]="username === ''" (click)="onResetUsernameClick($event)">Reset username</button> -->
