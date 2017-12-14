@@ -14,7 +14,8 @@ export class AppComponent {
     // (this.counter % 2) ? this.pToggler = true : this.pToggler = false;
     this.pToggler = !this.pToggler;
     // this.counter++;
-    this.clickArray.push(this.clickArray.length + 1);
+    // this.clickArray.push(this.clickArray.length + 1);
+    this.clickArray.push(new Date());
   }
 
   // getBgColor() {

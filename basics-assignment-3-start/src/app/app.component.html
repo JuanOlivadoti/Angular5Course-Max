@@ -18,6 +18,6 @@
         <!-- <button class="btn btn-primary" (click)="pToggler = !pToggler">Display Detalis</button> -->
         <button class="btn btn-primary" (click)="onBtnClick()">Display Detalis</button>
         <p *ngIf="pToggler">Secret Pasword = tuna</p>
-        <p *ngFor="let item of clickArray" [ngStyle]="{'background-color': item > 4 ? 'dodgerblue' : 'transparent'}" [ngClass]="{'whiteText': item > 4}">{{item}}</p>
+        <p *ngFor="let item of clickArray; let i = index" [ngStyle]="{'background-color': i > 5 ? 'dodgerblue' : 'transparent'}" [ngClass]="{'whiteText': i > 5}">{{item}}</p>
     </div>
 </div>
