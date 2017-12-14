@@ -14,8 +14,8 @@
 <br>
 <!-- <p>{{allowNewServer}}</p> -->
 <!-- <p [innerText]="allowNewServer"></p> Igual que arriba -->
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
+<!-- <app-server></app-server> -->
 <!-- <success-alert></success-alert> -->
 
 
