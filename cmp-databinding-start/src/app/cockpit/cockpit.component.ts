@@ -42,7 +42,6 @@ export class CockpitComponent implements OnInit {
     //   name: this.newServerName,
     //   content: this.newServerContent
     // });
-    console.log('hello');
 
     this.blueprintCreated.emit({
       serverName: nameInput.value,
