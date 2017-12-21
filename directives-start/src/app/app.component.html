@@ -7,19 +7,27 @@
                 <!-- <li class="list-group-item" *ngFor="let number of numbers">
                     {{number}}
                 </li> -->
-                <div *ngIf="onlyOdd">
+                <!-- <div *ngIf="onlyOdd">
+                    <li class="list-group-item" *ngFor="let odd of oddNumbers" [ngClass]="{'odd': odd % 2 !== 0}" [ngStyle]="{'background-color': odd % 2 !== 0 ? 'yellow' : 'transparent'}">
+                        {{odd}}
+                    </li>
+                </div> -->
+                <!-- <div *ngIf="!onlyOdd">
+                    <li class="list-group-item" *ngFor="let even of evenNumbers" [ngClass]="{'odd': even % 2 !== 0}" [ngStyle]="{'background-color': even % 2 !== 0 ? 'yellow' : 'transparent'}">
+                        {{even}}
+                    </li>
+                </div> -->
+                <div *appUnless="onlyOdd">
                     <li class="list-group-item" *ngFor="let odd of oddNumbers" [ngClass]="{'odd': odd % 2 !== 0}" [ngStyle]="{'background-color': odd % 2 !== 0 ? 'yellow' : 'transparent'}">
                         {{odd}}
                     </li>
                 </div>
-                <div *ngIf="!onlyOdd">
-                    <li class="list-group-item" *ngFor="let even of evenNumbers" [ngClass]="{'odd': even % 2 !== 0}" [ngStyle]="{'background-color': even % 2 !== 0 ? 'yellow' : 'transparent'}">
-                        {{even}}
-                    </li>
-                </div>
             </ul>
             <p appBasicHighlight>Style me Basic directive</p>
-            <p appBetterHighlight>Style me Better directive</p>
+            <!-- <p [appBetterHighlight]='orange' [defaultColor]="'yellow'">Style me Better directive</p> SOLO SI DESEO BINDEAR ELEMENTOS CON EL MISMO SELECTOR DE DIRECTIVAS -->
+            <!-- <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'orange'">Style me Better directive</p> -->
+            <p appBetterHighlight [defaultColor]="'yellow'" highlightColor="orange">Style me Better directive</p>
+            <!-- puedo omitir las [] si remuevo las '' del la declaración del string -->
             <ng-template [ngIf]="onlyOdd">
                 <p>Only odd</p>
             </ng-template>
