@@ -12,7 +12,8 @@ import { AccountsService } from 'app/accounts.service';
 export class NewAccountComponent {
   // @Output() accountAdded = new EventEmitter<{ name: string, status: string }>();
 
-  constructor(private loggingService: LoggingService, private accountsService: AccountsService) { }
+  constructor(private loggingService: LoggingService, private accountsService: AccountsService) {
+  }
 
   onCreateAccount(accountName: string, accountStatus: string) {
     // this.accountAdded.emit({
@@ -22,5 +23,9 @@ export class NewAccountComponent {
     this.accountsService.addAccount(accountName, accountStatus);
     // console.log('A server status changed, new status: ' + accountStatus);
     // this.loggingService.logStatusChange(accountStatus);
+    this.accountsService.statusUpdated.subscribe(
+      (status: string) => alert('New Status ' + status)
+    );
+
   }
 }

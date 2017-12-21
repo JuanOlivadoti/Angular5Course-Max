@@ -18,10 +18,12 @@ export class AccountComponent {
   constructor(private loggingService: LoggingService, private accountsService: AccountsService) {
 
   }
+
   onSetTo(status: string) {
     // this.statusChanged.emit({ id: this.id, newStatus: status });
     this.accountsService.updateAccount(this.id, status);
     // console.log('A server status changed, new status: ' + status);
     // this.loggingService.logStatusChange(status + '!');
+    this.accountsService.statusUpdated.emit(status);
   }
 }
