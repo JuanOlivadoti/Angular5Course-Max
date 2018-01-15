@@ -20,6 +20,9 @@ const appRoutes: Routes = [{
   path: 'users', // path =>localhost:4200/users
   component: UsersComponent
 }, {
+  path: 'users/:id', // path =>localhost:4200/users
+  component: UserComponent
+}, {
   path: 'servers', // path =>localhost:4200/servers
   component: ServersComponent
 }];
