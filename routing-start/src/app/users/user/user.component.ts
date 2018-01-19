@@ -20,7 +20,7 @@ export class UserComponent implements OnInit, OnDestroy {
     }
 
     //cuando ya está instanciado el componente se subscribe al cambio de datos.
-    this.route.params
+    this.paramsSubscription = this.route.params
       .subscribe(
       (params: Params) => {
         this.user.id = params['id'];
