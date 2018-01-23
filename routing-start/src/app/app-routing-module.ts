@@ -40,6 +40,7 @@ const appRoutes: Routes = [
 @NgModule({
     declarations: [],
     imports: [RouterModule.forRoot(appRoutes)],
+    // imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
     exports: [RouterModule], //tells angular what is accesible from this module.
     providers: [],
 })
