@@ -9,8 +9,9 @@ import { Recipe } from '../../recipe.model';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent implements OnInit {
-  @Input() recipe: Recipe;// Bindea recipe del componente a la declaración del padre.
   // @Output() recipeSelected = new EventEmitter<void>();
+  @Input() recipe: Recipe;// Bindea recipe del componente a la declaración del padre.
+  @Input() index: number;
 
   // constructor(private recipeService: RecipeService) { }
 
