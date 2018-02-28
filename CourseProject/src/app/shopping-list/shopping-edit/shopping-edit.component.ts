@@ -1,6 +1,6 @@
 // import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 // import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 
 import { Ingredient } from '../../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list.service';
@@ -17,10 +17,12 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   // @ViewChild('amountInput') amountInputRef: ElementRef;
   // ingredientAdded = new EventEmitter<{name:string,amount:number}>();
   // @Output() ingredientAdded = new EventEmitter<Ingredient>();
+  @ViewChild('f') slForm: NgForm;
 
   subscription: Subscription;
   editMode = false;
   editedItemIndex: number;
+  editedItem: Ingredient;
 
 
   constructor(private slService: ShoppingListService) { }
@@ -31,6 +33,11 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       (index: number) => {
         this.editedItemIndex = index;
         this.editMode = true;
+        this.editedItem = this.slService.getIngredient(index);
+        this.slForm.setValue({
+          name: this.editedItem.name,
+          amount: this.editedItem.amount
+        })
       }
       );
   }
